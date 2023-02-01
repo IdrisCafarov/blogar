@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
 from django.contrib import messages
+from django.utils import timezone
 from .models import *
 from .forms import *
 
@@ -72,4 +73,34 @@ def about(request):
      return render(request,"about.html")
 
 
+def contact(request):
 
+    context = {}
+    if request.method == 'POST':
+
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            message = form.save(commit = False)
+            message.created_date = timezone.now
+            message.save()
+        
+            return HttpResponseRedirect('/')
+    else:
+        form = ContactForm()
+
+    context["form"] = form
+
+    return render(request, 'contact.html',context)
+
+
+def search_view(request):
+
+    context = {}
+
+    if request.method=='POST':
+        searched = request.POST['q']
+        blogs=Blog.objects.filter(title__contains=searched)
+        return render(request, 'search.html', {'searched':searched, 'blogs':blogs})
+    
+    else:
+        return render(request, 'search.html', {}, context)

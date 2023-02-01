@@ -92,6 +92,14 @@ class Comment(models.Model):
         return self.email
 
     
-    
+class Contact(models.Model):
+    name = models.CharField(max_length=200)
+    phone = models.IntegerField(max_length=200)
+    email = models.EmailField()
+    message = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True, null=True)
+
+    def __str__(self):
+        return self.email
 
     

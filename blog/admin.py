@@ -15,3 +15,4 @@ class AdminBlog(admin.ModelAdmin):
 
 admin.site.register(Comment)
 
+admin.site.register(Contact)

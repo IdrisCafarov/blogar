@@ -101,3 +101,41 @@ class CommentForm(forms.ModelForm):
 #         super().__init__(*args, **kwargs)
 #         for key, field in self.fields.items():
 #             field.label = ""
+
+class ContactForm(forms.Form):
+    
+    name=forms.CharField(widget=forms.TextInput(attrs={
+        
+        'name':'name',
+        'placeholder':'Your Name*',
+        
+        
+    }))
+
+    phone=forms.CharField(widget=forms.TextInput(attrs={
+        
+        'name':'phone',
+        'placeholder':'Your Phone*',
+        
+        
+    }))
+
+    email=forms.EmailField(widget=forms.EmailInput(attrs={
+        
+        'name':'Email',
+        'placeholder':'Your Email*',
+        
+        
+    }))
+
+    message=forms.CharField(widget=forms.TextInput(attrs={
+        
+        'name':'name',
+        'placeholder':'Your Name*',
+        
+        
+    }))
+    
+    class Meta:
+        model = Contact
+        fields = ('name', 'phone', 'email', 'message' )
