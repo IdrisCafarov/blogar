@@ -11140,7 +11140,7 @@ blockquote p {
 }
 
 .axil-banner.banner-style-1 {
-  height: 670px;
+  height: 470px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -12398,4 +12398,103 @@ body.active-dark-mode .axil-footer-style-1 .footer-top .inner {
     background: #242424;
     color: #ffffff;
   }
+}
+
+
+.contact_border{
+  border-bottom: 1px dashed #3858F6;
+}
+.contact_border h1{
+  font-size: 50px;
+  font-weight: 100;
+
+}
+
+.contact_icon ul{
+  display: flex;
+  flex-direction: column;
+}
+.contact_icon ul li{
+  display: flex;
+  margin-top: 30px;
+}
+.icon{
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #3858F6;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.6s;
+  position: relative;
+}
+.icon1{
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #3858F6;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.6s;
+}
+.icon1:hover{
+ 
+  background-color: #2541cb;
+}
+.icon:hover{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+.icon::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -100%;
+  width: 2px;
+  height: 60px;
+  background-color: #3858F6;
+ 
+}
+.contact_icon ul li h5{
+ padding-top: 8px;
+ padding-left: 10px;
+}
+.teklif_btn{
+  padding: 15px 0px;
+  margin-bottom: 10px;
+  background-color: #3858F6;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.7s;
+}
+.teklif_btn:hover{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+.form-group input{
+  border: 2px solid rgba(179, 178, 178, 0.384);
+  background-color: white;
+}
+.form-group textarea{
+  border: 2px solid rgba(179, 178, 178, 0.384);
+  background-color: white;
+}
+.contact_bigdiv{
+  background-image: url('../images/contact1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.contact_bigdiv_bg{
+  height: 400px;
+  padding-top: 50px;
+
+
 }
