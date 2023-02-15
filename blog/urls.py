@@ -7,6 +7,7 @@ urlpatterns = [
     path('blog_detail/<slug>/',blog_detail,name="blog_detail"),
     path('about',about,name="about"),
     path('contact', contact, name = 'contact'),
-    path('search/', search_view, name = 'search')
-    
+    path('search/', search_view, name = 'search'),
+    path('auhtor/<slug>/', author_detail, name="author_detail"),
+
 ]

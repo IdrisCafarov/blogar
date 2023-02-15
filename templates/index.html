@@ -27,7 +27,7 @@
                                     <div class="post-content">
                                         <div class="post-cat">
                                             <div class="post-cat-list">
-                                                <a href="#">NIKE WOMEN’S</a>
+                                                <a>{{blog.sub.title}}</a>
                                             </div>
                                         </div>
                                         <h4 class="title"><a href="{{blog.get_absolute_url}}">{{blog.title}}</a></h4>
@@ -39,7 +39,7 @@
                                 <!-- End Single Blog  -->
                                 {% endfor %}
 
-                                
+
 
                             </div>
                         </div>
@@ -54,8 +54,8 @@
                                     </a>
                                 </div>
                                 {% endfor %}
-                                
-                                
+
+
 
                             </div>
                         </div>
@@ -104,7 +104,7 @@
 
                             {% endfor %}
 
-                           
+
                         </div>
                         <!-- Start List Wrapper  -->
                     </div>
@@ -118,9 +118,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
+                        {% for set in settings %}
                         <div class="section-title">
-                            <h2 class="title">Innovation &#38; Tech</h2>
+                            <h2 class="title">{{set.index_top}}</h2>
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="row">
@@ -129,7 +131,7 @@
                         <ul class="axil-tab-button nav nav-tabs mt--20" id="axilTab" role="tablist">
                             {% for sub in daily_subs %}
                             {% if forloop.first %}
-                            
+
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link " id="tab-{{sub.id|apnumber}}" data-bs-toggle="tab" href="#tab{{sub.id|apnumber}}" role="tab" aria-controls="tab-{{sub.id|apnumber}}" aria-selected="true">{{sub.title}}</a>
                             </li>
@@ -139,7 +141,7 @@
                             </li>
                             {% endif %}
                             {% endfor %}
-                            
+
                         </ul>
                         <!-- End Tab Button  -->
 
@@ -150,15 +152,15 @@
                             <div class="single-tab-content tab-pane fade show active" id="tab{{sub.id|apnumber}}" role="tabpanel" aria-labelledby="tab-{{sub.id|apnumber}}">
                                 <div class="modern-post-activation slick-layout-wrapper axil-slick-arrow arrow-between-side">
 
-                                    {% for blog in sub.blogs.all %}
+                                    {% for blog in sub.blogs.all|slice:':10' %}
                                     <!-- Start Single Post  -->
-                                    
+
                                     <div class="slick-single-layout">
                                         <div class="content-block modern-post-style text-center content-block-column">
                                             <div class="post-content">
                                                 <div class="post-cat">
                                                     <div class="post-cat-list">
-                                                        <a class="hover-flip-item-wrapper" href="#">
+                                                        <a class="hover-flip-item-wrapper" href="{{blog.sub.category.get_absolute_url}}">
                                                             <span class="hover-flip-item">
                                                                 <span data-text="{{blog.sub.category.title}}">{{blog.sub.category.title}}</span>
                                                             </span>
@@ -177,7 +179,7 @@
                                     <!-- End Single Post  -->
                                     {% endfor %}
 
-                                    
+
                                 </div>
                             </div>
                             {% else %}
@@ -186,15 +188,15 @@
 
                                     {% for blog in sub.blogs.all %}
                                     <!-- Start Single Post  -->
-                                    
+
                                     <div class="slick-single-layout">
                                         <div class="content-block modern-post-style text-center content-block-column">
                                             <div class="post-content">
                                                 <div class="post-cat">
                                                     <div class="post-cat-list">
-                                                        <a class="hover-flip-item-wrapper" href="#">
+                                                        <a class="hover-flip-item-wrapper">
                                                             <span class="hover-flip-item">
-                                                                <span data-text="ACCESSIBILITY">ACCESSIBILITY</span>
+                                                                <span data-text="{{blog.sub.title}}">{{blog.sub.title}}</span>
                                                             </span>
                                                         </a>
                                                     </div>
@@ -211,13 +213,13 @@
                                     <!-- End Single Post  -->
                                     {% endfor %}
 
-                                    
+
                                 </div>
                             </div>
                             {% endif %}
                             {% endfor %}
 
-                            
+
                         </div>
                         <!-- End Tab Content Wrapper  -->
                     </div>
@@ -263,9 +265,9 @@
                                             <div class="post-content">
                                                 <div class="post-cat">
                                                     <div class="post-cat-list">
-                                                        <a class="hover-flip-item-wrapper" href="#">
+                                                        <a class="hover-flip-item-wrapper">
                                                             <span class="hover-flip-item">
-                                                                <span data-text="CAREERS">CAREERS</span>
+                                                                <span data-text="{{blog.sub.title}}">{{blog.sub.title}}</span>
                                                             </span>
                                                         </a>
                                                     </div>
@@ -275,24 +277,24 @@
                                                     <div class="post-meta">
                                                         <div class="content">
                                                             <h6 class="post-author-name">
-                                                                <a class="hover-flip-item-wrapper" href="author.html">
+                                                                <a class="hover-flip-item-wrapper" href="{{blog.instructor.get_absolute_url}}">
                                                                     <span class="hover-flip-item">
-                                                                        <span data-text="Rahabi Khan">Rahabi Khan</span>
+                                                                        <span data-text="{{blog.instructor.name}}">{{blog.instructor.name}}</span>
                                                                     </span>
                                                                 </a>
                                                             </h6>
                                                             <ul class="post-meta-list">
-                                                                <li>Nov 23, 2018</li>
-                                                                <li>300k Views</li>
+                                                                <li>{{blog.created_date}}</li>
+                                                                {% comment %} <li>300k Views</li> {% endcomment %}
                                                             </ul>
                                                         </div>
                                                     </div>
-                                                    <ul class="social-share-transparent justify-content-end">
+                                                    {% comment %} <ul class="social-share-transparent justify-content-end">
                                                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                                         <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                                                         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                                         <li><a href="#"><i class="fas fa-link"></i></a></li>
-                                                    </ul>
+                                                    </ul> {% endcomment %}
                                                 </div>
                                             </div>
                                         </div>
@@ -316,9 +318,9 @@
                                                     <div class="post-content">
                                                         <div class="post-cat">
                                                             <div class="post-cat-list">
-                                                                <a class="hover-flip-item-wrapper" href="#">
+                                                                <a class="hover-flip-item-wrapper">
                                                                     <span class="hover-flip-item">
-                                                                        <span data-text="LIFESTYLE">LIFESTYLE</span>
+                                                                        <span data-text="{{blog.sub.title}}">{{blog.sub.title}}</span>
                                                                     </span>
                                                                 </a>
                                                             </div>
@@ -348,7 +350,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-xl-8">
-                        {% for blog in popular_blogs|slice:':5' %}
+                        {% for blog in latests|slice:'4:9' %}
                         <!-- Start Post List  -->
                         <div class="content-block post-list-view is-active mt--30">
                             <div class="post-thumbnail">
@@ -359,9 +361,9 @@
                             <div class="post-content">
                                 <div class="post-cat">
                                     <div class="post-cat-list">
-                                        <a class="hover-flip-item-wrapper" href="#">
+                                        <a class="hover-flip-item-wrapper">
                                             <span class="hover-flip-item">
-                                                <span data-text="FOOD">FOOD</span>
+                                                <span data-text="{{blog.sub.title}}">{{blog.sub.title}}</span>
                                             </span>
                                         </a>
                                     </div>
@@ -371,31 +373,31 @@
                                     <div class="post-meta">
                                         <div class="content">
                                             <h6 class="post-author-name">
-                                                <a class="hover-flip-item-wrapper" href="author.html">
+                                                <a class="hover-flip-item-wrapper" href="{{blog.instructor.get_absolute_url}}">
                                                     <span class="hover-flip-item">
-                                                        <span data-text="Rahabi Khan">Rahabi Khan</span>
+                                                        <span data-text="{{blog.instructor.name}}">{{blog.instructor.name}}</span>
                                                     </span>
                                                 </a>
                                             </h6>
                                             <ul class="post-meta-list">
-                                                <li>Feb 17, 2019</li>
-                                                <li>3 min read</li>
+                                                <li>{{blog.created_date}}</li>
+                                                {% comment %} <li>3 min read</li> {% endcomment %}
                                             </ul>
                                         </div>
                                     </div>
-                                    <ul class="social-share-transparent justify-content-end">
+                                    {% comment %} <ul class="social-share-transparent justify-content-end">
                                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                         <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                                         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                         <li><a href="#"><i class="fas fa-link"></i></a></li>
-                                    </ul>
+                                    </ul> {% endcomment %}
                                 </div>
                             </div>
                         </div>
                         <!-- End Post List  -->
                         {% endfor %}
 
-                        
+
                     </div>
                     <div class="col-lg-4 col-xl-4 mt_md--40 mt_sm--40">
                         <!-- Start Sidebar Area  -->
@@ -423,10 +425,11 @@
                             <!-- Start Single Widget  -->
                             <div class="axil-single-widget widget widget_search mb--30">
                                 <h5 class="widget-title">Search</h5>
-                                <form action="#">
+                                <form method="post" action="{% url 'search' %}">
+                                    {% csrf_token %}
                                     <div class="axil-search form-group">
                                         <button type="submit" class="search-button"><i class="fal fa-search"></i></button>
-                                        <input type="text" class="form-control" placeholder="Search">
+                                        <input type="search" class="form-control" name="searched" id="searched" placeholder="Search">
                                     </div>
                                 </form>
                             </div>
@@ -509,18 +512,28 @@
                                 <h5 class="widget-title">Stay In Touch</h5>
                                 <!-- Start Post List  -->
                                 <ul class="social-icon md-size justify-content-center">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-slack"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    {% for set in settings %}
+                                    {% if set.facebook %}
+                                    <li><a href="{{set.facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                                    {% endif %}
+                                    {% if set.instagram %}
+                                    <li><a href="set.instagram"><i class="fab fa-instagram"></i></a></li>
+                                    {% endif %}
+                                    {% if set.twitter %}
+                                    <li><a href="{{set.twitter}}"><i class="fab fa-twitter"></i></a></li>
+                                    {% endif %}
+                                    {% comment %} <li><a href="#"><i class="fab fa-slack"></i></a></li> {% endcomment %}
+                                    {% if set.linkedin %}
+                                    <li><a href="{{set.linkedin}}"><i class="fab fa-linkedin-in"></i></a></li>
+                                    {% endif %}
+                                    {% endfor %}
                                 </ul>
                                 <!-- End Post List  -->
                             </div>
                             <!-- End Single Widget  -->
 
                             <!-- Start Single Widget  -->
-                            <div class="axil-single-widget widget widget_instagram mb--30">
+                            {% comment %} <div class="axil-single-widget widget widget_instagram mb--30">
                                 <h5 class="widget-title">Instagram</h5>
                                 <!-- Start Post List  -->
                                 <ul class="instagram-post-list-wrapper">
@@ -556,7 +569,7 @@
                                     </li>
                                 </ul>
                                 <!-- End Post List  -->
-                            </div>
+                            </div> {% endcomment %}
                             <!-- End Single Widget  -->
                         </div>
                         <!-- End Sidebar Area  -->
@@ -570,7 +583,7 @@
         <!-- End Post List Wrapper  -->
 
         <!-- Start Instagram Area  -->
-        <div class="axil-instagram-area axil-section-gap bg-color-grey">
+        {% comment %} <div class="axil-instagram-area axil-section-gap bg-color-grey">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -622,7 +635,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> {% endcomment %}
         <!-- End Instagram Area  -->
 
         {% endblock body %}

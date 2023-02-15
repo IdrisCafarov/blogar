@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, redirect
 from django.contrib import messages
 from django.utils import timezone
 from .models import *
@@ -70,37 +70,56 @@ def handler404(request, exception):
 
 
 def about(request):
-     return render(request,"about.html")
+    context = {}
+
+    instructors = Instructor.objects.all()
+    context['instructors'] = instructors
+
+    return render(request,"about.html", context)
 
 
 def contact(request):
 
     context = {}
-    if request.method == 'POST':
 
+    if request.method == 'POST':
         form = ContactForm(request.POST)
+        # print(form)
         if form.is_valid():
-            message = form.save(commit = False)
-            message.created_date = timezone.now
-            message.save()
-        
-            return HttpResponseRedirect('/')
+            form = form.save(commit=False)
+            # form.service =
+            form.save()
+            messages.success(request, 'Sizin müraciətiniz uğurla göndərildi !')
+            return redirect(request.META['HTTP_REFERER'])
     else:
         form = ContactForm()
 
-    context["form"] = form
+    context['form'] = form
+
 
     return render(request, 'contact.html',context)
 
 
 def search_view(request):
 
-    context = {}
+    if request.method == "POST":
+        searched = request.POST['searched']
+        searched_blogs = Blog.objects.filter(title__contains=searched).order_by('id')
+        if searched_blogs:
 
-    if request.method=='POST':
-        searched = request.POST['q']
-        blogs=Blog.objects.filter(title__contains=searched)
-        return render(request, 'search.html', {'searched':searched, 'blogs':blogs})
-    
-    else:
-        return render(request, 'search.html', {}, context)
+            context = {
+                "searched_blogs":searched_blogs,
+                "searched":searched,
+            }
+            return render(request,"search.html",context)
+        else:
+            return render(request,"empty_search.html")
+
+
+def author_detail(request,slug):
+    context = {}
+    author = get_object_or_404(Instructor,slug=slug)
+
+    context['author'] = author
+
+    return render(request, "author.html", context)

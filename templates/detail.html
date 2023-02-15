@@ -14,7 +14,7 @@
                         <div class="content-block">
                             <!-- Start Post Thumbnail  -->
                             <div class="post-thumbnail">
-                                <img src="{{blog.main_image.url}}" alt="Post Images">
+                                <img style="width:1440px ;height:720px;object-fit:cover;" src="{{blog.main_image.url}}" alt="Post Images">
                             </div>
                             <!-- End Post Thumbnail  -->
                             <!-- Start Post Content  -->
@@ -33,13 +33,13 @@
                                 <div class="post-meta-wrapper">
                                     <div class="post-meta">
                                         <div class="post-author-avatar border-rounded">
-                                            <img src="{% static 'images/post-images/author/author-image-3.png' %}" alt="Author Images">
+                                            <img style="width:50px ;height:50px;object-fit:cover;" src="{{blog.instructor.image.url}}" alt="Author Images">
                                         </div>
                                         <div class="content">
                                             <h6 class="post-author-name">
-                                                <a class="hover-flip-item-wrapper" href="#">
+                                                <a class="hover-flip-item-wrapper" href="{{blog.instructor.get_absolute_url}}">
                                                     <span class="hover-flip-item">
-                                                        <span data-text="Ismat Jahan">Ismat Jahan</span>
+                                                        <span data-text="{{blog.instructor.name}}">{{blog.instructor.name}}</span>
                                                     </span>
                                                 </a>
                                             </h6>
@@ -50,10 +50,18 @@
                                         </div>
                                     </div>
                                     <ul class="social-share-transparent justify-content-end">
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-link"></i></a></li>
+                                        {% if blog.instructor.facebook %}
+                                        <li><a href="{{blog.instructor.facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                                        {% endif %}
+                                        {% if blog.instructor.instagram %}
+                                        <li><a href="{{blog.instructor.instagram}}"><i class="fab fa-instagram"></i></a></li>
+                                        {% endif %}
+                                        {% if blog.instructor.twitter %}
+                                        <li><a href="{{blog.instructor.twitter}}"><i class="fab fa-twitter"></i></a></li>
+                                        {% endif %}
+                                        {% if blog.instructor.linkedin %}
+                                        <li><a href="{{blog.instructor.linkedin}}"><i class="fab fa-linkedin-in"></i></a></li>
+                                        {% endif %}
                                     </ul>
                                 </div>
                             </div>
@@ -72,38 +80,38 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="axil-post-details">
-                            
+
                             <figure class="wp-block-image">
-                                {% if blog.image_1.url %}
-                                <img src="{{blog.image_1.url}}" alt="Post Images">
+                                {% if blog.image_1 %}
+                                <img style="width:810px ;height:560px;object-fit:cover;" src="{{blog.image_1.url}}" alt="Post Images">
                                 {% endif %}
-                                
+
                             </figure>
                             {% if blog.text_1 %}
                             <p>{{blog.text_1|safe}}</p>
                             {% endif %}
-                            
+
                             <figure class="wp-block-image">
-                                {% if blog.image_2.url %}
-                                <img src="{{blog.image_2.url}}" alt="Post Images">
+                                {% if blog.image_2 %}
+                                <img style="width:810px ;height:560px;object-fit:cover;" src="{{blog.image_2.url}}" alt="Post Images">
                                 {% endif %}
-                                
+
                             </figure>
                             {% if blog.text_2 %}
                             <p>{{blog.text_2|safe}}</p>
                             {% endif %}
-                            
+
 
                             <figure class="wp-block-image">
-                                {% if blog.image_3.url %}
-                                <img src="{{blog.image_3.url}}" alt="Post Images">
+                                {% if blog.image_3 %}
+                                <img style="width:810px ;height:560px;object-fit:cover;" src="{{blog.image_3.url}}" alt="Post Images">
                                 {% endif %}
-                                
+
                             </figure>
                             {% if blog_text_3 %}
                             <p>{{blog.text_3|safe}}</p>
                             {% endif %}
-                            
+
 
                             {% comment %} <div class="tagcloud">
                                 <a href="#">Design</a>
@@ -130,32 +138,36 @@
                             <div class="about-author">
                                 <div class="media">
                                     <div class="thumbnail">
-                                        <a href="#">
-                                            <img src="{% static 'images/post-images/author/author-b1.png' %}" alt="Author Images">
+                                        <a href="{{blog.instructor.get_absolute_url}}">
+                                            <img style="width:105px ;height:105px;object-fit:cover;" src="{{blog.instructor.image.url}}" alt="Author Images">
                                         </a>
                                     </div>
                                     <div class="media-body">
                                         <div class="author-info">
                                             <h5 class="title">
-                                                <a class="hover-flip-item-wrapper" href="#">
+                                                <a class="hover-flip-item-wrapper" href="{{blog.instructor.get_absolute_url}}">
                                                     <span class="hover-flip-item">
-                                                        <span data-text="Rahabi Ahmed Khan">Rahabi Ahmed Khan</span>
+                                                        <span data-text="{{blog.instructor.name}}">{{blog.instructor.name}}</span>
                                                     </span>
                                                 </a>
                                             </h5>
-                                            <span class="b3 subtitle">Sr. UX Designer</span>
+                                            <span class="b3 subtitle">{{blog.instructor.position}}</span>
                                         </div>
                                         <div class="content">
-                                            <p class="b1 description">At 29 years old, my favorite compliment is being
-                                                told that I look like my mom. Seeing myself in her image, like this
-                                                daughter up top, makes me so proud of how far I’ve come, and so thankful
-                                                for where I come from.</p>
+                                            <p class="b1 description">{{blog.instructor.about|safe}}</p>
                                             <ul class="social-share-transparent size-md">
-                                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="far fa-envelope"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                                {% if blog.instructor.facebook %}
+                                                <li><a href="{{blog.instructor.facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                                                {% endif %}
+                                                {% if blog.instructor.instagram %}
+                                                <li><a href="{{blog.instructor.instagram}}"><i class="fab fa-instagram"></i></a></li>
+                                                {% endif %}
+                                                {% if blog.instructor.twitter %}
+                                                <li><a href="{{blog.instructor.twitter}}"><i class="fab fa-twitter"></i></a></li>
+                                                {% endif %}
+                                                {% if blog.instructor.linkedin %}
+                                                <li><a href="{{blog.instructor.linkedin}}"><i class="fab fa-linkedin-in"></i></a></li>
+                                                {% endif %}
                                             </ul>
                                         </div>
                                     </div>
@@ -177,7 +189,7 @@
                                 <!-- Start Comment Respond  -->
                                 <div class="comment-respond">
                                     <div style="text-align: center !important;" class="col-lg-12">
-                                
+
                                         {% if messages %}
                                             {% for message in messages %}
                                                 {% if message.tags == "success" %}
@@ -186,7 +198,7 @@
                                                     </div>
                                                 {% endif %}
                                             {% endfor %}
-                            
+
                                         {% endif %}
                                     </div>
                                     <h4 class="title">Post a comment</h4>
@@ -235,7 +247,7 @@
                                 <!-- End Comment Respond  -->
 
                                 <!-- Start Comment Area  -->
-                                
+
                                 <div class="axil-comment-area">
                                     <h4 class="title">{{blog.comments.count}} comments</h4>
                                     <ul class="comment-list">
@@ -265,31 +277,31 @@
                                                                         </span>
                                                                     </a> {% endcomment %}
                                                                     <!-- Start Comment Respond  -->
-                                
+
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="comment-text">
                                                             <p class="b2">{{com.comment}} </p>
                                                         </div>
-                                                        
-                                                        <!-- End Comment Respond  -->   
+
+                                                        <!-- End Comment Respond  -->
                                                     </div>
-                                                    
+
                                                 </div>
                                             </div>
                                             <ul class="children">
-                                                
+
                                             </ul>
                                         </li>
                                         <!-- End Single Comment  -->
                                         {% endfor %}
 
-                                        
+
                                     </ul>
                                 </div>
                                 <!-- End Comment Area  -->
-                                
+
 
                             </div>
                             <!-- End Comment Form Area  -->
@@ -348,7 +360,7 @@
                             <!-- End Single Widget  --> {% endcomment %}
 
                             <!-- Start Single Widget  -->
-                            <div class="axil-single-widget widget widget_search mb--30">
+                            {% comment %} <div class="axil-single-widget widget widget_search mb--30">
                                 <h5 class="widget-title">Search</h5>
                                 <form action="#">
                                     <div class="axil-search form-group">
@@ -356,7 +368,7 @@
                                         <input type="text" class="form-control" placeholder="Search">
                                     </div>
                                 </form>
-                            </div>
+                            </div> {% endcomment %}
                             <!-- End Single Widget  -->
 
                             <!-- Start Single Widget  -->
@@ -373,10 +385,10 @@
                                             </a>
                                         </div>
                                         <div class="post-content">
-                                            <h6 class="title"><a href="post-details.html">{{blog.title}}</a></h6>
+                                            <h6 class="title"><a href="{{blog.get_absolute_url}}">{{blog.title}}</a></h6>
                                             <div class="post-meta">
                                                 <ul class="post-meta-list">
-                                                    <li>Feb 17, 2019</li>
+                                                    <li>{{blog.created_date}}</li>
                                                     {% comment %} <li>300k Views</li> {% endcomment %}
                                                 </ul>
                                             </div>
@@ -385,7 +397,7 @@
                                     {% endfor %}
                                     <!-- End Single Post  -->
 
-                                    
+
 
                                 </div>
                                 <!-- End Post List  -->
@@ -394,7 +406,7 @@
                             <!-- End Single Widget  -->
 
                             <!-- Start Single Widget  -->
-                            <div class="axil-single-widget widget widget_newsletter mb--30">
+                            {% comment %} <div class="axil-single-widget widget widget_newsletter mb--30">
                                 <!-- Start Post List  -->
                                 <div class="newsletter-inner text-center">
                                     <h4 class="title mb--15">Never Miss A Post!</h4>
@@ -409,7 +421,7 @@
                                     </form>
                                 </div>
                                 <!-- End Post List  -->
-                            </div>
+                            </div> {% endcomment %}
                             <!-- End Single Widget  -->
 
                             <!-- Start Single Widget  -->
@@ -429,11 +441,21 @@
                                 <h5 class="widget-title">Stay In Touch</h5>
                                 <!-- Start Post List  -->
                                 <ul class="social-icon md-size justify-content-center">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-slack"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    {% for set in settings %}
+                                    {% if set.facebook %}
+                                    <li><a href="{{set.facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                                    {% endif %}
+                                    {% if set.instagram %}
+                                    <li><a href="set.instagram"><i class="fab fa-instagram"></i></a></li>
+                                    {% endif %}
+                                    {% if set.twitter %}
+                                    <li><a href="{{set.twitter}}"><i class="fab fa-twitter"></i></a></li>
+                                    {% endif %}
+                                    {% comment %} <li><a href="#"><i class="fab fa-slack"></i></a></li> {% endcomment %}
+                                    {% if set.linkedin %}
+                                    <li><a href="{{set.linkedin}}"><i class="fab fa-linkedin-in"></i></a></li>
+                                    {% endif %}
+                                    {% endfor %}
                                 </ul>
                                 <!-- End Post List  -->
                             </div>
@@ -660,111 +682,111 @@
         <!-- End Post Single Wrapper  -->
 
         <!-- Start More Stories Area  -->
-        <div class="axil-more-stories-area axil-section-gap bg-color-grey">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title">
-                            <h2 class="title">More Stories</h2>
+            {% comment %} <div class="axil-more-stories-area axil-section-gap bg-color-grey">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-title">
+                                <h2 class="title">More Stories</h2>
+                            </div>
                         </div>
+                    </div>
+                    <div class="row">
+
+                        <!-- Start Stories Post  -->
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <!-- Start Post List  -->
+                            <div class="post-stories content-block mt--30">
+                                <div class="post-thumbnail">
+                                    <a href="post-details.html">
+                                        <img src="images/post-single/stories-01.jpg" alt="Post Images">
+                                    </a>
+                                </div>
+                                <div class="post-content">
+                                    <div class="post-cat">
+                                        <div class="post-cat-list">
+                                            <a href="#">LEADERSHIP</a>
+                                        </div>
+                                    </div>
+                                    <h5 class="title"><a href="post-details.html">Microsoft and Bridgestone launch real-time
+                                            tire</a></h5>
+                                </div>
+                            </div>
+                            <!-- End Post List  -->
+                        </div>
+                        <!-- Start Stories Post  -->
+
+                        <!-- Start Stories Post  -->
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <!-- Start Post List  -->
+                            <div class="post-stories content-block mt--30">
+                                <div class="post-thumbnail">
+                                    <a href="post-details.html">
+                                        <img src="images/post-single/stories-02.jpg" alt="Post Images">
+                                    </a>
+                                </div>
+                                <div class="post-content">
+                                    <div class="post-cat">
+                                        <div class="post-cat-list">
+                                            <a href="#">DESIGN</a>
+                                        </div>
+                                    </div>
+                                    <h5 class="title"><a href="post-details.html">Microsoft and Bridgestone launch real-time
+                                            tire</a></h5>
+                                </div>
+                            </div>
+                            <!-- End Post List  -->
+                        </div>
+                        <!-- Start Stories Post  -->
+
+                        <!-- Start Stories Post  -->
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <!-- Start Post List  -->
+                            <div class="post-stories content-block mt--30">
+                                <div class="post-thumbnail">
+                                    <a href="post-details.html">
+                                        <img src="images/post-single/stories-03.jpg" alt="Post Images">
+                                    </a>
+                                </div>
+                                <div class="post-content">
+                                    <div class="post-cat">
+                                        <div class="post-cat-list">
+                                            <a href="#">PRODUCT UPDATES</a>
+                                        </div>
+                                    </div>
+                                    <h5 class="title"><a href="post-details.html">Microsoft and Bridgestone launch real-time
+                                            tire</a></h5>
+                                </div>
+                            </div>
+                            <!-- End Post List  -->
+                        </div>
+                        <!-- Start Stories Post  -->
+
+                        <!-- Start Stories Post  -->
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <!-- Start Post List  -->
+                            <div class="post-stories content-block mt--30">
+                                <div class="post-thumbnail">
+                                    <a href="post-details.html">
+                                        <img src="images/post-single/stories-04.jpg" alt="Post Images">
+                                    </a>
+                                </div>
+                                <div class="post-content">
+                                    <div class="post-cat">
+                                        <div class="post-cat-list">
+                                            <a href="#">COLLABORATION</a>
+                                        </div>
+                                    </div>
+                                    <h5 class="title"><a href="post-details.html">Microsoft and Bridgestone launch real-time
+                                            tire</a></h5>
+                                </div>
+                            </div>
+                            <!-- End Post List  -->
+                        </div>
+                        <!-- Start Stories Post  -->
                     </div>
                 </div>
-                <div class="row">
-
-                    <!-- Start Stories Post  -->
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                        <!-- Start Post List  -->
-                        <div class="post-stories content-block mt--30">
-                            <div class="post-thumbnail">
-                                <a href="post-details.html">
-                                    <img src="images/post-single/stories-01.jpg" alt="Post Images">
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <div class="post-cat">
-                                    <div class="post-cat-list">
-                                        <a href="#">LEADERSHIP</a>
-                                    </div>
-                                </div>
-                                <h5 class="title"><a href="post-details.html">Microsoft and Bridgestone launch real-time
-                                        tire</a></h5>
-                            </div>
-                        </div>
-                        <!-- End Post List  -->
-                    </div>
-                    <!-- Start Stories Post  -->
-
-                    <!-- Start Stories Post  -->
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                        <!-- Start Post List  -->
-                        <div class="post-stories content-block mt--30">
-                            <div class="post-thumbnail">
-                                <a href="post-details.html">
-                                    <img src="images/post-single/stories-02.jpg" alt="Post Images">
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <div class="post-cat">
-                                    <div class="post-cat-list">
-                                        <a href="#">DESIGN</a>
-                                    </div>
-                                </div>
-                                <h5 class="title"><a href="post-details.html">Microsoft and Bridgestone launch real-time
-                                        tire</a></h5>
-                            </div>
-                        </div>
-                        <!-- End Post List  -->
-                    </div>
-                    <!-- Start Stories Post  -->
-
-                    <!-- Start Stories Post  -->
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                        <!-- Start Post List  -->
-                        <div class="post-stories content-block mt--30">
-                            <div class="post-thumbnail">
-                                <a href="post-details.html">
-                                    <img src="images/post-single/stories-03.jpg" alt="Post Images">
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <div class="post-cat">
-                                    <div class="post-cat-list">
-                                        <a href="#">PRODUCT UPDATES</a>
-                                    </div>
-                                </div>
-                                <h5 class="title"><a href="post-details.html">Microsoft and Bridgestone launch real-time
-                                        tire</a></h5>
-                            </div>
-                        </div>
-                        <!-- End Post List  -->
-                    </div>
-                    <!-- Start Stories Post  -->
-
-                    <!-- Start Stories Post  -->
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                        <!-- Start Post List  -->
-                        <div class="post-stories content-block mt--30">
-                            <div class="post-thumbnail">
-                                <a href="post-details.html">
-                                    <img src="images/post-single/stories-04.jpg" alt="Post Images">
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <div class="post-cat">
-                                    <div class="post-cat-list">
-                                        <a href="#">COLLABORATION</a>
-                                    </div>
-                                </div>
-                                <h5 class="title"><a href="post-details.html">Microsoft and Bridgestone launch real-time
-                                        tire</a></h5>
-                            </div>
-                        </div>
-                        <!-- End Post List  -->
-                    </div>
-                    <!-- Start Stories Post  -->
-                </div>
-            </div>
-        </div>
+            </div> {% endcomment %}
         <!-- End More Stories Area  -->
 
         <!-- Start Instagram Area  -->
@@ -824,4 +846,3 @@
         <!-- End Instagram Area  -->
 
         {% endblock body %}
-       

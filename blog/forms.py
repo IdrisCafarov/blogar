@@ -8,13 +8,13 @@ from django.utils.translation import gettext_lazy as _
 
 
 class CommentForm(forms.ModelForm):
-    
+
     name=forms.CharField(max_length=1200,widget=forms.TextInput(attrs={
     	'id':'name',
     	'placeholder':'Name*',
         'type': 'text',
-        
-        
+
+
 
     	}))
 
@@ -28,17 +28,17 @@ class CommentForm(forms.ModelForm):
 
 
     comment=forms.CharField(widget=forms.Textarea(attrs={
-        
+
         'name':'message',
         'placeholder':'Your Message*',
-        
-        
+
+
     	}))
 
-    
-   
+
+
     class Meta:
-        model = Comment    
+        model = Comment
         fields = ('name','email','comment')
 
 
@@ -52,14 +52,14 @@ class CommentForm(forms.ModelForm):
 
 
 # class ContactForm(forms.ModelForm):
-    
+
 #     name=forms.CharField(max_length=1200,widget=forms.TextInput(attrs={
 #     	'class':'form-control form-control-lg',
 #     	'placeholder':'Name*',
 #         'type': 'text',
 #         'name':'contact-name',
 #         'id':'contact-name',
-        
+
 
 #     	}))
 
@@ -86,14 +86,14 @@ class CommentForm(forms.ModelForm):
 #         'id' : 'contact-message',
 #         'name' : 'contact-message',
 #         'placeholder':'Your Message*',
-        
-        
+
+
 #     	}))
 
-    
-   
+
+
 #     class Meta:
-#         model = ContactFormModel    
+#         model = ContactFormModel
 #         fields = ('name','email','subject','text')
 
 
@@ -102,40 +102,39 @@ class CommentForm(forms.ModelForm):
 #         for key, field in self.fields.items():
 #             field.label = ""
 
-class ContactForm(forms.Form):
-    
+class ContactForm(forms.ModelForm):
+
     name=forms.CharField(widget=forms.TextInput(attrs={
-        
-        'name':'name',
-        'placeholder':'Your Name*',
-        
-        
+        'id':'contact-name',
+        'type':'text',
+        'name':'contact-name',
+
+
+
     }))
 
-    phone=forms.CharField(widget=forms.TextInput(attrs={
-        
-        'name':'phone',
-        'placeholder':'Your Phone*',
-        
-        
-    }))
 
     email=forms.EmailField(widget=forms.EmailInput(attrs={
-        
+
         'name':'Email',
-        'placeholder':'Your Email*',
-        
-        
+
+
+
     }))
 
-    message=forms.CharField(widget=forms.TextInput(attrs={
-        
+    message=forms.CharField(widget=forms.Textarea(attrs={
+
         'name':'name',
-        'placeholder':'Your Name*',
-        
-        
+
+
     }))
-    
+
     class Meta:
         model = Contact
-        fields = ('name', 'phone', 'email', 'message' )
+        fields = ('name', 'email', 'message' )
+
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for key, field in self.fields.items():
+            field.label = ""

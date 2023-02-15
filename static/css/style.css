@@ -26,8 +26,8 @@
 	|
 	|
 	|___Blocks Styles
-	|	|___ Header 
-	|	|___ Navigation 
+	|	|___ Header
+	|	|___ Navigation
 	|	|___ Banner
 	|	|___ Footer
 	|
@@ -39,7 +39,7 @@
     Default Styles
 ***************************************/
 /*-- Variables --*/
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500&amp;display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 :root {
   --color-primary: #3858F6;
   --color-secondary: #D93E40;
@@ -201,7 +201,7 @@ ins {
 }
 
 pre {
-  font-family: "Courier 10 Pitch", Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
   font-size: var(--font-size-b3);
   margin: 10px 0;
   overflow: auto;
@@ -555,7 +555,7 @@ h3,
 h4,
 .h4 {
   font-size: var(--h4);
-  line-height: 1.25;
+  line-height: 1.9;
 }
 
 h5,
@@ -746,7 +746,7 @@ var {
 }
 
 /*---------------------------
-	List Style 
+	List Style
 ---------------------------*/
 ul,
 ol {
@@ -885,7 +885,7 @@ button.axil-button, a.axil-link-button, input[type=submit], .form-group textarea
 }
 
 /*----------------------
-    Animation Css  
+    Animation Css
 -----------------------*/
 .post-scale {
   overflow: hidden;
@@ -964,7 +964,7 @@ button.axil-button, a.axil-link-button, input[type=submit], .form-group textarea
 }
 
 /* ------------------------
-    Custom Animation 01 
+    Custom Animation 01
 ----------------------------*/
 @-webkit-keyframes headerSlideDown {
   0% {
@@ -1031,7 +1031,7 @@ button.axil-button, a.axil-link-button, input[type=submit], .form-group textarea
   }
 }
 /*--------------------------------
-Scroll Down Button Animation  
+Scroll Down Button Animation
 ----------------------------------*/
 @-webkit-keyframes scrollDown {
   0% {
@@ -1066,7 +1066,7 @@ Scroll Down Button Animation
 /*==============================
  *  Utilities
 =================================*/
-/* 
+/*
 font-family: 'Red Hat Display', sans-serif;
 */
 .clearfix:before,
@@ -1088,7 +1088,7 @@ font-family: 'Red Hat Display', sans-serif;
 }
 
 /*===============================
-    Background Color 
+    Background Color
 =================================*/
 .bg-color-primary {
   background: var(--color-primary);
@@ -1119,7 +1119,7 @@ font-family: 'Red Hat Display', sans-serif;
 }
 
 /*===========================
-    Background Image 
+    Background Image
 =============================*/
 .bg_image--1 {
   background-image: url(../images/bg/bg-image-1.jpg);
@@ -1563,7 +1563,7 @@ textarea:-ms-input-placeholder {
 }
 
 /*=============================
-	Overlay styles 
+	Overlay styles
 ==============================*/
 [data-overlay],
 [data-black-overlay],
@@ -1662,7 +1662,7 @@ textarea:-ms-input-placeholder {
 }
 
 /*------------------------------
-    Scroll Up 
+    Scroll Up
 --------------------------------*/
 #scrollUp {
   width: 70px;
@@ -1762,7 +1762,7 @@ textarea:-ms-input-placeholder {
 }
 
 /*--------------------
-    Contact Form 
+    Contact Form
 ----------------------*/
 .form-message {
   margin-bottom: 0;
@@ -1778,7 +1778,7 @@ textarea:-ms-input-placeholder {
 }
 
 /*=========================
-    Section Separation 
+    Section Separation
 ==========================*/
 .slick-dotted.slick-slider {
   margin-bottom: 0;
@@ -1786,6 +1786,7 @@ textarea:-ms-input-placeholder {
 
 .axil-section-gap {
   padding: 80px 0;
+
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .axil-section-gap {
@@ -6430,7 +6431,7 @@ textarea:-ms-input-placeholder {
   padding-right: 100px;
 }
 
-/*======================== 
+/*========================
     Common Style Css
 ==========================*/
 /* Theme Gradient */
@@ -7073,7 +7074,7 @@ button.axil-button .hover-flip-item span::before {
 }
 
 /*---------------------
-    Tab Styles  
+    Tab Styles
 ----------------------*/
 ul.axil-tab-button {
   margin: -10px;
@@ -7134,7 +7135,7 @@ ul.axil-tab-button .nav-item a.nav-link.active {
 }
 
 /* -------------------------
-Category Styles 
+Category Styles
 ------------------------- */
 .list-categories {
   margin: -15px;
@@ -7248,7 +7249,7 @@ Category Styles
 }
 
 /*------------------------
-Social Share Styles  
+Social Share Styles
 ---------------------------*/
 ul.social-icon {
   margin: -5px;
@@ -7318,7 +7319,7 @@ ul.social-icon.color-white li a:hover {
 }
 
 /*-------------------------
-    Social With Text  
+    Social With Text
 --------------------------*/
 .axil-social-wrapper {
   padding: 35px 50px;
@@ -7461,7 +7462,7 @@ ul.size-md li a {
 }
 
 /*---------------------
-    Video Styles  
+    Video Styles
 ----------------------*/
 a.video-popup,
 button.video-popup {
@@ -7616,7 +7617,7 @@ button.video-popup:hover {
 }
 
 /*--------------------
-Slick Style  
+Slick Style
 ---------------------*/
 .slick-initialized .slick-slide {
   margin-bottom: 0;
@@ -7743,7 +7744,7 @@ Slick Style
 }
 
 /*-----------------------
-Breadcrumb Styles  
+Breadcrumb Styles
 ------------------------*/
 .breadcrumb-style-1 {
   padding: 80px 0;
@@ -7853,7 +7854,7 @@ p.form-messege.success {
 	Header Styles
 ***************************************/
 /*--------------------
-Header Styles  
+Header Styles
 -----------------------*/
 .axil-header {
   padding: 0 60px;
@@ -8002,7 +8003,7 @@ Header Styles
 }
 
 /*------------------------
-Search Styles  
+Search Styles
 --------------------------*/
 .axil-search.form-group {
   position: relative;
@@ -8152,7 +8153,7 @@ button.search-button i {
   }
 }
 /*--------------------------
-    Header Style Three  
+    Header Style Three
 ---------------------------*/
 .header-top {
   background: var(--color-lightest);
@@ -8313,7 +8314,7 @@ button.search-button i {
 }
 
 /*---------------------------
-    Header Style Four  
+    Header Style Four
 ----------------------------*/
 .axil-header.header-style-4 {
   padding: 0;
@@ -8378,7 +8379,7 @@ button.search-button i {
 }
 
 /*---------------------------
-    Header Style Five 
+    Header Style Five
 ----------------------------*/
 .axil-header.header-style-5 {
   padding: 0;
@@ -8444,7 +8445,7 @@ button.search-button i {
 }
 
 /*---------------------------
-    Header Style Six 
+    Header Style Six
 ----------------------------*/
 .axil-header.header-style-6 {
   padding: 0;
@@ -8516,7 +8517,7 @@ button.search-button i {
 }
 
 /*--------------------------
-Navigation Css  
+Navigation Css
 ---------------------------*/
 .mainmenu-nav ul.mainmenu {
   display: -webkit-box;
@@ -8822,7 +8823,7 @@ Navigation Css
 }
 
 /*----------------------
-    Mobile Menu Styles  
+    Mobile Menu Styles
 -------------------------*/
 .popup-mobile-menu-show .popup-mobilemenu-area {
   visibility: visible;
@@ -8973,7 +8974,7 @@ Navigation Css
 	Post Styles
 ***************************************/
 /*----------------------
-Post List Style  
+Post List Style
 -------------------------*/
 .slick-layout-wrapper {
   margin: 0 -15px;
@@ -9823,6 +9824,7 @@ Post List Style
 
 .content-block .post-thumbnail {
   position: relative;
+
 }
 .content-block .post-thumbnail .review-count {
   position: absolute;
@@ -9840,7 +9842,7 @@ Post List Style
 }
 
 /* --------------------
-Post Category  
+Post Category
 -----------------------*/
 .post-content .post-cat {
   margin-bottom: 10px;
@@ -9883,7 +9885,7 @@ Post Category
 }
 
 /*-----------------------
-    Post Meta Date  
+    Post Meta Date
 ------------------------*/
 .post-meta-wrapper {
   display: -webkit-box;
@@ -10105,7 +10107,7 @@ ul.post-meta-list li:last-child::after {
   }
 }
 /* --------------------
-Sidebar Styles  
+Sidebar Styles
 ----------------------*/
 .axil-single-widget {
   background: #FBFBFD;
@@ -10315,7 +10317,7 @@ Sidebar Styles
 }
 
 /*--------------------------
-    Post Details Styles  
+    Post Details Styles
 --------------------------*/
 figure {
   margin-bottom: 60px;
@@ -10540,7 +10542,7 @@ blockquote p {
 }
 
 /*----------------------
-    Post Formate  
+    Post Formate
 -----------------------*/
 .banner-single-post.post-formate.alignwide .content-block {
   margin: 0 -105px;
@@ -10700,19 +10702,24 @@ blockquote p {
 /* Post Stories  */
 .post-stories .post-thumbnail a {
   display: block;
+
 }
 .post-stories .post-thumbnail a img {
-  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+
 }
 .post-stories .post-content {
   padding-top: 20px;
+
 }
 .post-stories .post-content .title {
   margin-bottom: 0;
 }
 
 /*--------------------
-    Axil Comment  
+    Axil Comment
 ----------------------*/
 .axil-total-comment-post {
   display: -webkit-box;
@@ -10742,7 +10749,7 @@ blockquote p {
 }
 
 /*---------------------------
-    Comment Form Styles  
+    Comment Form Styles
 ----------------------------*/
 .comment-respond {
   margin: 40px 0;
@@ -10761,7 +10768,7 @@ blockquote p {
 }
 
 /* --------------------------
-    Comments Styles  
+    Comments Styles
 -----------------------------*/
 .comment-list ul.children {
   padding-left: 75px;
@@ -10864,7 +10871,7 @@ blockquote p {
 	Template Styles
 ***************************************/
 /*----------------------
-    Banner Styles  
+    Banner Styles
 -----------------------*/
 .axil-slide.slider-style-1 .content-block {
   position: relative;
@@ -11053,6 +11060,7 @@ blockquote p {
   display: block;
   overflow: hidden;
   border-radius: var(--radius);
+
 }
 .axil-slide.slider-style-3 .content-block.slick-current::before {
   width: 100%;
@@ -11300,7 +11308,7 @@ blockquote p {
 }
 
 /* ---------------------
-Instagram Styles  
+Instagram Styles
 -------------------------*/
 .instagram-post-list {
   margin: -9px;
@@ -11379,7 +11387,7 @@ Instagram Styles
 }
 
 /*--------------------
-    Dark Version  
+    Dark Version
 --------------------*/
 .bg-color-black h1,
 .bg-color-black h2,
@@ -11412,7 +11420,7 @@ Instagram Styles
 }
 
 /*------------------
-    Author Styles  
+    Author Styles
 -------------------*/
 .axil-author-banner .about-author {
   padding: 80px 0;
@@ -11463,7 +11471,7 @@ Instagram Styles
 }
 
 /*---------------------------
-    Animation Images Css  
+    Animation Images Css
 -----------------------------*/
 .image-hover-group .animated-image-box {
   position: relative;
@@ -11561,7 +11569,7 @@ Instagram Styles
   margin-bottom: 30px;
 }
 /* ----------------------
-    Maintanence Area  
+    Maintanence Area
 ------------------------*/
 .maintanence-area {
   display: -webkit-box;
@@ -11670,10 +11678,11 @@ Instagram Styles
 	Footer Styles
 ***************************************/
 /*===========================
-    Start Footer Area 
+    Start Footer Area
 =============================*/
 .axil-footer-style-1 {
   padding: 40px 0;
+  margin-top: 7.47%;
 }
 .axil-footer-style-1 .footer-top .inner {
   padding-bottom: 20px;
@@ -11872,7 +11881,7 @@ Instagram Styles
 }
 
 /* -----------------------------
-    Theme Dark Version Styles  
+    Theme Dark Version Styles
 --------------------------------*/
 body.active-dark-mode {
   color: #ffffff;
@@ -11939,7 +11948,7 @@ body.active-dark-mode .axil-header.header-style-3 .header-top .social-share-tran
 }
 
 /*--------------------
- Header Area  
+ Header Area
 ----------------------*/
 body.active-dark-mode .axil-search.form-group input {
   background: #242424;
@@ -11982,7 +11991,7 @@ body.active-dark-mode .axil-slide.slider-style-1 .content-block .post-content {
 }
 
 /*------------------------
-    Post Content  
+    Post Content
 -------------------------*/
 body.active-dark-mode .content-block.post-horizontal {
   border-color: #1A1A1A;
@@ -12047,7 +12056,7 @@ body.active-dark-mode .content-block.modern-post-style .post-thumbnail::before {
 }
 
 /*-------------------
-    BLog Sidebar  
+    BLog Sidebar
 --------------------*/
 body.active-dark-mode .axil-single-widget {
   background: #181818;
@@ -12066,7 +12075,7 @@ body.active-dark-mode .axil-single-widget.widget_categories {
 }
 
 /*-------------------------
-    Slick Slider   
+    Slick Slider
 --------------------------*/
 body.active-dark-mode .axil-slick-arrow .slide-arrow {
   background: #050505;
@@ -12102,7 +12111,7 @@ body.active-dark-mode .slider-activation.axil-slick-arrow .slide-arrow:hover i {
 }
 
 /*-----------------------
-    Footer Style  
+    Footer Style
 -------------------------*/
 body.active-dark-mode .axil-footer-style-1 {
   background: #111111;
@@ -12125,7 +12134,7 @@ body.active-dark-mode .axil-footer-style-1.footer-variation-2 .logo img.white-lo
 }
 
 /*-----------------------
-    Home Creative  
+    Home Creative
 ------------------------*/
 body.active-dark-mode .axil-slide.slider-style-3 {
   background: #1A1A1A;
@@ -12147,7 +12156,7 @@ body.active-dark-mode .axil-slide.slider-style-3 .content-block {
 }
 
 /*----------------------
-Seo Blog  
+Seo Blog
 ----------------------*/
 body.active-dark-mode .header-top {
   background: #212121;
@@ -12162,7 +12171,7 @@ body.active-dark-mode .axil-header.header-style-6 .metabar-block li.icon a {
 }
 
 /*-----------------------
-    Blog Details  
+    Blog Details
 -----------------------*/
 body.active-dark-mode .axil-single-widget .tagcloud a {
   border: 1px solid #050505;
@@ -12183,7 +12192,7 @@ body.active-dark-mode .comment-list .comment .comment-text p {
 }
 
 /*---------------------
-    Home Seo  
+    Home Seo
 ---------------------*/
 body.active-dark-mode .copyright-area .copyright-left .logo img.dark-logo {
   display: none;
@@ -12197,8 +12206,8 @@ body.active-dark-mode .copyright-area .copyright-left .logo img.light-logo {
   display: block;
 }
 
-/*---------------- 
-Home Tech  
+/*----------------
+Home Tech
 ----------------*/
 body.active-dark-mode .axil-header.header-style-3 .header-top,
 body.active-dark-mode .axil-header.header-style-4 .header-top {
@@ -12239,7 +12248,7 @@ body.active-dark-mode .mainmenu-nav ul.mainmenu > li.menu-item-has-children .axi
 }
 
 /*-----------------------
-    Blog Details  
+    Blog Details
 -----------------------*/
 body.active-dark-mode .banner-single-post.post-formate .content-block .post-content .post-meta-wrapper {
   border-color: #333333;
